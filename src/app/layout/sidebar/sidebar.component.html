@@ -1,0 +1,58 @@
+<aside class="sidebar">
+
+  <!-- Logo -->
+  <div class="brand">
+    <div class="brand-icon">
+      <mat-icon>account_balance_wallet</mat-icon>
+    </div>
+
+    <span>FinTrack</span>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navigation">
+
+    <p class="nav-heading">MENU</p>
+
+    @for (item of navigationItems; track item.route) {
+      <a
+        class="nav-item"
+        [routerLink]="item.route"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }">
+
+        <mat-icon>{{ item.icon }}</mat-icon>
+
+        <span>{{ item.label }}</span>
+
+      </a>
+    }
+
+  </nav>
+
+  <!-- Bottom Navigation -->
+  <div class="sidebar-bottom">
+
+    <a
+      routerLink="/settings"
+      routerLinkActive="active"
+      class="nav-item">
+
+      <mat-icon>settings</mat-icon>
+      <span>Settings</span>
+
+    </a>
+
+    <a routerLink="/login" class="nav-item logout">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </a>
+
+  </div>
+
+  <div class="sidebar-footer">
+    <p>FinTrack v1.0</p>
+    <small>Manage your money better.</small>
+  </div>
+
+</aside>
