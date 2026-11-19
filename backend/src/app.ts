@@ -1,5 +1,8 @@
 import express from 'express';
 import cors from 'cors';
+import authRoutes from './modules/auth/auth.routes.js';
+import transactionRoutes from './modules/transactions/transactions.routes.js';
+import categoryRoutes from './modules/categories/category.routes.js';
 
 const app = express();
 
@@ -13,10 +16,8 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-const PORT = 3000;
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+app.use('/api/auth', authRoutes);
+app.use('/api/transactions', transactionRoutes);
+app.use('/api/categories', categoryRoutes);
 
 export default app;
